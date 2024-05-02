@@ -1,5 +1,6 @@
 package com.canvia.pe.app.application.service;
 
+import com.canvia.pe.app.application.entity.StudentDto;
 import com.canvia.pe.app.domain.entity.Student;
 import com.canvia.pe.app.infraestructure.persistence.repository.StudentRepository;
 import com.canvia.pe.app.infraestructure.vertical.Constants;
@@ -20,10 +21,21 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public GenericResponse<Boolean> save(StudentRequest studentRequest) {
         Student student = studentRepository.findByCode(studentRequest.getCode());
+
         if (Objects.nonNull(student))
             return Utils.buildResponseError(Constants.Response.VALIDATION_ERROR, Constants.Message.MSG_STUDENT_CODE_EXIST);
 
         studentRepository.save(StudentHelper.buildStudent(studentRequest));
         return Utils.buildResponseSuccess();
+    }
+
+    @Override
+    public GenericResponse<StudentDto> getByCode(String code) {
+        Student student = studentRepository.findByCode(code);
+
+        if (Objects.isNull(student))
+            return Utils.buildResponseError(Constants.Response.VALIDATION_ERROR, Constants.Message.MSG_STUDENT_NOT_FOUND, null);
+
+        return Utils.buildResponseSuccess(StudentHelper.castStudent(student));
     }
 }
