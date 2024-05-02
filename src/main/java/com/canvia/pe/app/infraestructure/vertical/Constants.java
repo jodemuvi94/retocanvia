@@ -13,7 +13,7 @@ public class Constants implements Serializable {
         public static final String MSG_SUCCESS = "Procesado con éxito";
 
         public static final String MSG_STUDENT_CODE_EXIST = "Ya existe un alumno con código ingresado";
-        public static final String MSG_STUDENT_NOT_FOUND = "No existe alumno con el código ingresado";
+        public static final String MSG_STUDENT_NOT_FOUND = "El alumno no fue encontrado";
     }
 
     public static class Gender implements Serializable {
