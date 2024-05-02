@@ -31,4 +31,16 @@ public class NoteServiceImpl implements NoteService {
 
         return Utils.buildResponseSuccess();
     }
+
+    @Override
+    public GenericResponse<Double> getAvg(String studentCode) {
+        Student student = studentRepository.findByCode(studentCode);
+
+        if (Objects.isNull(student))
+            return Utils.buildResponseError(Constants.Response.VALIDATION_ERROR, Constants.Message.MSG_STUDENT_NOT_FOUND, 0.0);
+
+        Double avg = noteRepository.getAvg(student.getId());
+
+        return Utils.buildResponseSuccess(avg);
+    }
 }

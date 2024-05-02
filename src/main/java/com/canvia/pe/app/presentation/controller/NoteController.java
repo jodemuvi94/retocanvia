@@ -33,4 +33,13 @@ public class NoteController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/{studentCode}/avg")
+    public ResponseEntity<GenericResponse<Double>> getAvg(@PathVariable String studentCode) {
+        GenericResponse<Double> response = noteService.getAvg(studentCode);
+
+        if (response.getCode().equals(Constants.Response.VALIDATION_ERROR))
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+
+        return ResponseEntity.ok(response);
+    }
 }

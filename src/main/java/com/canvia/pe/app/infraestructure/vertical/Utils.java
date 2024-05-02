@@ -20,6 +20,15 @@ public class Utils {
         return response;
     }
 
+    public static GenericResponse<Double> buildResponseSuccess(Double value) {
+        log.error("Code [{}]: {}", Constants.Response.SUCCESS, Constants.Message.MSG_SUCCESS);
+        GenericResponse<Double> response = new GenericResponse<>();
+        response.setCode(Constants.Response.SUCCESS);
+        response.setData(value);
+        response.setMessage(Constants.Message.MSG_SUCCESS);
+        return response;
+    }
+
     public static GenericResponse<StudentDto> buildResponseSuccess(StudentDto data) {
         log.error("Code [{}]: {}", Constants.Response.SUCCESS, Constants.Message.MSG_SUCCESS);
         GenericResponse<StudentDto> response = new GenericResponse<>();
@@ -34,6 +43,15 @@ public class Utils {
         GenericResponse<Boolean> response = new GenericResponse<>();
         response.setCode(code);
         response.setData(Boolean.FALSE);
+        response.setMessage(message);
+        return response;
+    }
+
+    public static GenericResponse<Double> buildResponseError(String code, String message, double value) {
+        log.error("Code [{}]: {}", code, message);
+        GenericResponse<Double> response = new GenericResponse<>();
+        response.setCode(code);
+        response.setData(value);
         response.setMessage(message);
         return response;
     }

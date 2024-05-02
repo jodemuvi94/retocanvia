@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface NoteService {
     GenericResponse<Boolean> saveAll(String studentCode, List<NoteRequest> notes);
+
+    GenericResponse<Double> getAvg(String studentCode);
 }
