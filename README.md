@@ -35,6 +35,7 @@ Registrar Notas con código de estudiante que no existe
 ![alt text](./images/registrar-notas-error.PNG)
 
 Obtener Promedio con éxito
+
 ![alt text](./images/obtener-avg-ok.PNG)
 
 Obtener Promedio con código de estudiante que no existe
