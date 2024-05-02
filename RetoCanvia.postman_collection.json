@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "1549d318-8754-451b-943b-b919b6f2a77e",
+		"name": "RetoCanvia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "12393453"
+	},
+	"item": [
+		{
+			"name": "StudentSave",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\": \"0020240004\",\r\n    \"name\": \"LUIS\",\r\n    \"paternalSurname\": \"LOPEZ\",\r\n    \"maternalSurname\": \"ALIAGA\",\r\n    \"gender\": \"MALE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/v1/students"
+			},
+			"response": []
+		},
+		{
+			"name": "NoteSaveAll",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"description\": \"Práctica 1\",\r\n        \"note\": 13\r\n    },\r\n    {\r\n        \"description\": \"Práctica 2\",\r\n        \"note\": 15\r\n    },\r\n    {\r\n        \"description\": \"Parcial 1\",\r\n        \"note\": 14\r\n    },\r\n    {\r\n        \"description\": \"Parcial 2\",\r\n        \"note\": 16\r\n    },\r\n    {\r\n        \"description\": \"Ex. Medio Curso\",\r\n        \"note\": 18\r\n    },\r\n    {\r\n        \"description\": \"Ex. Final\",\r\n        \"note\": 10.5\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/v1/notes/0020240004"
+			},
+			"response": []
+		},
+		{
+			"name": "GetStudent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/v1/students/0020240004"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAvg",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/v1/notes/0020240004/avg"
+			},
+			"response": []
+		}
+	]
+}
