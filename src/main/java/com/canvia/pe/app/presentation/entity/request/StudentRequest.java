@@ -1,4 +1,4 @@
-package com.canvia.pe.app.presentation.entity;
+package com.canvia.pe.app.presentation.entity.request;
 
 import com.canvia.pe.app.core.enums.GenderEnum;
 import lombok.Getter;
